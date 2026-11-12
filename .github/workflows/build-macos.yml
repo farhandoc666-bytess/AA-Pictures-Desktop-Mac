@@ -39,10 +39,30 @@ jobs:
           test -f build.config.js
           test -f wordpress-plugin-reference/aap-desktop-licensing.php
           # The built app embeds only this public key, never a WordPress private key.
-          cp aa-desktop-public-key.pem assets/trusted-public-key.pem
 
       - name: Install Electron build dependencies
         run: npm install --no-fund
+
+      - name: Verify and embed the website public signing key
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const crypto = require('node:crypto');
+          const expected = '8dbff148977a9f8b762a9b7e013ff6b9cba52252e245fda56e027093623c45cb';
+          const source = fs.readFileSync('aa-desktop-public-key.pem', 'utf8');
+          const pem = source.replace(/\r\n?/g, '\n').trim() + '\n';
+          const key = crypto.createPublicKey(pem);
+          if (key.asymmetricKeyType !== 'rsa' || key.asymmetricKeyDetails.modulusLength !== 3072) {
+            throw new Error('WordPress signing key must be RSA-3072');
+          }
+          const der = key.export({type: 'spki', format: 'der'});
+          const fingerprint = crypto.createHash('sha256').update(der).digest('hex');
+          if (fingerprint !== expected) throw new Error('WordPress public key does not match the approved site key');
+          fs.mkdirSync('assets', {recursive: true});
+          fs.writeFileSync('assets/trusted-public-key.pem', pem);
+          console.log('Approved website public key verified and embedded for the build');
+          NODE
 
       - name: Run all desktop source tests
         run: npm test
