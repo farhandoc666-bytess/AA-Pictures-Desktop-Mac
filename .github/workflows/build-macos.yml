@@ -1,0 +1,110 @@
+name: Build A&A Pictures macOS DMG installers
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_mode:
+        description: "Unsigned test DMGs or signed/notarized customer release"
+        required: true
+        default: test_unsigned
+        type: choice
+        options:
+          - test_unsigned
+          - signed_release
+
+permissions:
+  contents: read
+
+jobs:
+  build-macos:
+    name: Build Script Studio + Media Production Studio
+    runs-on: macos-15
+    timeout-minutes: 90
+    steps:
+      - name: Check out project source
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          # This project has no package-lock.json, so npm caching is not enabled.
+
+      - name: Verify files needed for building
+        shell: bash
+        run: |
+          test -f package.json
+          test -f aa-desktop-public-key.pem
+          test -f scripts/build.js
+          test -f build.config.js
+          test -f wordpress-plugin-reference/aap-desktop-licensing.php
+          # The built app embeds only this public key, never a WordPress private key.
+          cp aa-desktop-public-key.pem assets/trusted-public-key.pem
+
+      - name: Install Electron build dependencies
+        run: npm install --no-fund
+
+      - name: Run all desktop source tests
+        run: npm test
+
+      - name: Build both UNSIGNED development-only universal DMGs
+        if: ${{ inputs.build_mode == 'test_unsigned' }}
+        env:
+          AAD_ALLOW_UNSIGNED_MAC: '1'
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build.js script "$GITHUB_WORKSPACE/aa-desktop-public-key.pem" mac
+          node scripts/build.js media "$GITHUB_WORKSPACE/aa-desktop-public-key.pem" mac
+
+      - name: Confirm Apple release secrets are configured
+        if: ${{ inputs.build_mode == 'signed_release' }}
+        env:
+          CSC_LINK: ${{ secrets.AA_MAC_CSC_LINK }}
+          CSC_KEY_PASSWORD: ${{ secrets.AA_MAC_CSC_PASSWORD }}
+          APPLE_ID: ${{ secrets.AA_APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.AA_APPLE_APP_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.AA_APPLE_TEAM_ID }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in CSC_LINK CSC_KEY_PASSWORD APPLE_ID APPLE_APP_SPECIFIC_PASSWORD APPLE_TEAM_ID; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "::error::Required Apple release secret is missing: ${name}"
+              exit 1
+            fi
+          done
+
+      - name: Build both signed and notarized universal DMGs
+        if: ${{ inputs.build_mode == 'signed_release' }}
+        env:
+          CSC_LINK: ${{ secrets.AA_MAC_CSC_LINK }}
+          CSC_KEY_PASSWORD: ${{ secrets.AA_MAC_CSC_PASSWORD }}
+          APPLE_ID: ${{ secrets.AA_APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.AA_APPLE_APP_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.AA_APPLE_TEAM_ID }}
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build.js script "$GITHUB_WORKSPACE/aa-desktop-public-key.pem" mac
+          node scripts/build.js media "$GITHUB_WORKSPACE/aa-desktop-public-key.pem" mac
+
+      - name: Confirm two DMG files exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          ls -lh dist/script/*.dmg dist/media/*.dmg
+          test "$(find dist/script -maxdepth 1 -name '*.dmg' -type f | wc -l | tr -d ' ')" -ge 1
+          test "$(find dist/media -maxdepth 1 -name '*.dmg' -type f | wc -l | tr -d ' ')" -ge 1
+
+      - name: Upload DMG installer artifacts (private repository)
+        uses: actions/upload-artifact@v4
+        with:
+          name: AA-Pictures-macOS-${{ inputs.build_mode }}-DMGs
+          path: |
+            dist/script/*.dmg
+            dist/media/*.dmg
+          if-no-files-found: error
+          retention-days: 7
