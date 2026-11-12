@@ -1,0 +1,49 @@
+A&A PICTURES · READY-TO-BUILD WINDOWS SOURCE (SITE KEY INCLUDED)
+
+This source bundle has been configured with the PUBLIC RSA key downloaded
+from the activated Desktop Licences plugin at https://aapctrs.com.
+
+EXPECTED PUBLIC KEY SHA-256:
+0b179e5049d9d322bac1ddb025fb02b016a5d316d6bd22737c9af9f240a825ce
+
+QUICK START — WINDOWS 10/11 x64
+1) Unzip the full archive. Open the aa-desktop-suite folder.
+2) Double-click BUILD-WINDOWS.bat. The script installs npm dependencies
+   and builds the two Windows x64 installer executables. Internet is needed
+   for dependency downloads. If Node.js is not installed, winget may install
+   it first and you will need to rerun the BAT in a fresh terminal.
+3) Test installed applications and signing, local saves and offline reopen.
+4) Only once tests pass, upload the EXE installers from dist/script and
+   dist/media to WordPress > A&A App Store > Desktop Licences.
+5) Test an actual verified customer download, activation and Gemini request.
+
+This is source code, NOT a prebuilt EXE; builds require a working Windows
+build PC and internet. Never include your Gemini API key, database
+credentials, private RSA signing key, or purchased keys in the Windows app.
+
+ABOUT GEMINI
+Your provider API key belongs only in the secure WordPress Creative
+Studio Gemini configuration (existing key can be reused). Desktop apps
+send authorized requests via the WordPress aadl/v1/ai proxy. Gemini needs
+internet; editor save and reports use local storage. The Media Production
+Studio source currently contains no separate Gemini client workflow.
+
+SECURITY/RELEASE NOTES
+- The embedded public key is used to verify signatures, not to sign.
+- The original WordPress licensing plugin is already installed; do not
+  re-install it merely to build the apps.
+- Device-bound activation requires first-time internet; remote revocation
+  cannot stop a permanently offline computer until it connects.
+- This bundle has passed Node source tests and PEM checks. It has not been
+  compiled as a Windows EXE nor tested end to end against the live site.
+- Keep the key consistent: rotating the WordPress signing key will require
+  distributing an updated installer and planning migrations.
+
+SPACE-SAFE WINDOWS BUILD FIX v1.0.1
+The builder now safely handles spaces in Windows folder paths.
+The BAT directly invokes Node for each build, and build.js invokes the
+electron-builder CLI without using a cmd.exe shell or npm argument forwarding.
+If you already ran v1.0.0, extract this new ZIP in a fresh folder and run
+BUILD-WINDOWS.bat. Your website/plugin and issued keys are not changed.
+The previous npm audit output (8 dependency advisories) is separate from the
+path failure; review npm audit before release, and do not run npm audit fix --force blindly.
