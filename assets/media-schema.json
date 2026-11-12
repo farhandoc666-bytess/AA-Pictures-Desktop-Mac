@@ -1,0 +1,2333 @@
+{
+    "schema": {
+        "development": {
+            "label": "Creative development",
+            "section": "Development",
+            "fields": [
+                {
+                    "key": "logline",
+                    "label": "Logline",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "synopsis",
+                    "label": "Synopsis",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "treatment",
+                    "label": "Treatment",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "director_notes",
+                    "label": "Director notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "author",
+                    "label": "Author",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "revision",
+                    "label": "Revision label",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "reference",
+                    "label": "Reference link",
+                    "type": "url",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "script_revision": {
+            "label": "Script revisions",
+            "section": "Script & Revisions",
+            "fields": [
+                {
+                    "key": "label",
+                    "label": "Revision label",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "format",
+                    "label": "Source format",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "import_date",
+                    "label": "Import date",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "source_file",
+                    "label": "Original filename",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "scene_count",
+                    "label": "Number of scenes",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Revision notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "added",
+                    "label": "Added scenes",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "changed",
+                    "label": "Changed scenes",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "removed",
+                    "label": "Removed scenes",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "warnings",
+                    "label": "Import warnings",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "scene": {
+            "label": "Scenes",
+            "section": "Script & Revisions",
+            "fields": [
+                {
+                    "key": "scene_number",
+                    "label": "Printed scene number",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "heading",
+                    "label": "Scene heading",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "description",
+                    "label": "Action \/ overview",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "int_ext",
+                    "label": "INT \/ EXT",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "INT",
+                        "EXT",
+                        "INT\/EXT",
+                        "OTHER"
+                    ]
+                },
+                {
+                    "key": "day_night",
+                    "label": "Time of day",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "DAY",
+                        "NIGHT",
+                        "DAWN",
+                        "DUSK",
+                        "OTHER"
+                    ]
+                },
+                {
+                    "key": "location",
+                    "label": "Location name",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "pages",
+                    "label": "Estimated pages",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "duration",
+                    "label": "Estimated minutes",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "revision_ref",
+                    "label": "Script revision",
+                    "type": "ref:script_revision",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "change_status",
+                    "label": "Revision status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "current",
+                        "changed",
+                        "added",
+                        "removed"
+                    ]
+                },
+                {
+                    "key": "notes",
+                    "label": "Production notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "breakdown": {
+            "label": "Breakdown items",
+            "section": "Breakdown",
+            "fields": [
+                {
+                    "key": "scene_id",
+                    "label": "Scene",
+                    "type": "ref:scene",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "category",
+                    "label": "Category",
+                    "type": "select",
+                    "required": true,
+                    "options": [
+                        "Cast",
+                        "Extras",
+                        "Props",
+                        "Costume",
+                        "Makeup",
+                        "Vehicles",
+                        "Animals",
+                        "Equipment",
+                        "Stunts",
+                        "VFX",
+                        "Location",
+                        "Other"
+                    ]
+                },
+                {
+                    "key": "item",
+                    "label": "Item \/ requirement",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "quantity",
+                    "label": "Quantity",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "assigned_to",
+                    "label": "Responsible person",
+                    "type": "ref:person",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "resource_id",
+                    "label": "Linked resource",
+                    "type": "ref:resource",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "shot": {
+            "label": "Shots \/ storyboards",
+            "section": "Breakdown",
+            "fields": [
+                {
+                    "key": "scene_id",
+                    "label": "Scene",
+                    "type": "ref:scene",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "shot_number",
+                    "label": "Shot ID",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "framing",
+                    "label": "Framing",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "movement",
+                    "label": "Camera movement",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "lens",
+                    "label": "Lens \/ camera notes",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "equipment_id",
+                    "label": "Equipment",
+                    "type": "ref:resource",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "storyboard",
+                    "label": "Storyboard \/ reference URL",
+                    "type": "url",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "setup_order",
+                    "label": "Setup order",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "estimated_minutes",
+                    "label": "Estimated minutes",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Planned",
+                        "Ready",
+                        "In progress",
+                        "Completed",
+                        "Postponed",
+                        "Pickup required"
+                    ]
+                },
+                {
+                    "key": "notes",
+                    "label": "Shot notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "person": {
+            "label": "Cast \/ crew",
+            "section": "People",
+            "fields": [
+                {
+                    "key": "name",
+                    "label": "Full name",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "department",
+                    "label": "Department",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Cast",
+                        "Crew",
+                        "Production",
+                        "Camera",
+                        "Sound",
+                        "Art",
+                        "Wardrobe",
+                        "Makeup",
+                        "VFX",
+                        "Postproduction",
+                        "Other"
+                    ]
+                },
+                {
+                    "key": "role",
+                    "label": "Role",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "email",
+                    "label": "Email",
+                    "type": "email",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "phone",
+                    "label": "Phone",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "rate",
+                    "label": "Agreed planning rate",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "availability",
+                    "label": "Availability notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "audition",
+                    "label": "Audition \/ selection notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "selection",
+                    "label": "Selection status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Candidate",
+                        "Confirmed",
+                        "Declined",
+                        "TBC"
+                    ]
+                },
+                {
+                    "key": "restricted_notes",
+                    "label": "Sensitive notes (restrict access)",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "location": {
+            "label": "Locations",
+            "section": "Locations & Resources",
+            "fields": [
+                {
+                    "key": "name",
+                    "label": "Location name",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "address",
+                    "label": "Address",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "reference",
+                    "label": "Map \/ scouting link",
+                    "type": "url",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "access",
+                    "label": "Access \/ facilities",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "restrictions",
+                    "label": "Restrictions",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "permission",
+                    "label": "Permissions status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Unknown",
+                        "Requested",
+                        "Approved",
+                        "Expired"
+                    ]
+                },
+                {
+                    "key": "cost",
+                    "label": "Estimated cost",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "alternative",
+                    "label": "Alternate location",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Scouting notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "resource": {
+            "label": "Resources \/ equipment",
+            "section": "Locations & Resources",
+            "fields": [
+                {
+                    "key": "name",
+                    "label": "Resource name",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "category",
+                    "label": "Category",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Camera",
+                        "Lighting",
+                        "Sound",
+                        "Props",
+                        "Costume",
+                        "Set",
+                        "Vehicle",
+                        "Animal",
+                        "Other"
+                    ]
+                },
+                {
+                    "key": "owned_hired",
+                    "label": "Owned or hired",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Owned",
+                        "Hired"
+                    ]
+                },
+                {
+                    "key": "quantity",
+                    "label": "Quantity",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "supplier",
+                    "label": "Supplier",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "rate",
+                    "label": "Rate",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "booked_from",
+                    "label": "Booking starts",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "booked_to",
+                    "label": "Booking ends",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "condition",
+                    "label": "Condition",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Usage \/ continuity notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "budget_item": {
+            "label": "Budget items",
+            "section": "Budget",
+            "fields": [
+                {
+                    "key": "department",
+                    "label": "Department",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "item",
+                    "label": "Item description",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "quantity",
+                    "label": "Quantity",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "unit",
+                    "label": "Unit",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "rate",
+                    "label": "Rate",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "contingency",
+                    "label": "Contingency",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "committed",
+                    "label": "Committed amount",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "paid",
+                    "label": "Paid amount",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "actual",
+                    "label": "Actual costs",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "supplier",
+                    "label": "Supplier",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Finance notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "cashflow": {
+            "label": "Funding & cash flow",
+            "section": "Budget",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Receipt \/ payment item",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "flow",
+                    "label": "Direction",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Funding received",
+                        "Expected receipt",
+                        "Forecast expense",
+                        "Actual expense"
+                    ]
+                },
+                {
+                    "key": "amount",
+                    "label": "Amount",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "date",
+                    "label": "Expected date",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Planned",
+                        "Committed",
+                        "Settled"
+                    ]
+                },
+                {
+                    "key": "notes",
+                    "label": "Milestone \/ notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "schedule": {
+            "label": "Shoot schedule",
+            "section": "Schedule",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Day \/ unit label",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "shoot_date",
+                    "label": "Shoot date",
+                    "type": "date",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "unit",
+                    "label": "Unit",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "start",
+                    "label": "Start time",
+                    "type": "time",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "end",
+                    "label": "End time",
+                    "type": "time",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "scene_ids",
+                    "label": "Scenes",
+                    "type": "refs:scene",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "people_ids",
+                    "label": "Cast \/ crew",
+                    "type": "refs:person",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "resource_ids",
+                    "label": "Equipment \/ resources",
+                    "type": "refs:resource",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "location_id",
+                    "label": "Location",
+                    "type": "ref:location",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Draft",
+                        "Ready",
+                        "Confirmed",
+                        "Complete"
+                    ]
+                },
+                {
+                    "key": "changes_reason",
+                    "label": "Reason for schedule change",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "logistics": {
+            "label": "Logistics",
+            "section": "Schedule",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Item \/ movement",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "schedule_id",
+                    "label": "Shoot day",
+                    "type": "ref:schedule",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "kind",
+                    "label": "Type",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Transport",
+                        "Accommodation",
+                        "Catering",
+                        "Parking",
+                        "Delivery",
+                        "Facilities"
+                    ]
+                },
+                {
+                    "key": "time",
+                    "label": "Time",
+                    "type": "time",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "responsible",
+                    "label": "Responsible person",
+                    "type": "ref:person",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Details",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "readiness": {
+            "label": "Readiness \/ permits",
+            "section": "Schedule",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Checklist item \/ permit",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "schedule_id",
+                    "label": "Shoot day",
+                    "type": "ref:schedule",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "kind",
+                    "label": "Category",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Permit",
+                        "Risk assessment",
+                        "Insurance",
+                        "Rehearsal",
+                        "Agreement",
+                        "Technical test",
+                        "Department readiness",
+                        "Other"
+                    ]
+                },
+                {
+                    "key": "owner",
+                    "label": "Responsible person",
+                    "type": "ref:person",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "due",
+                    "label": "Due date",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "expiry",
+                    "label": "Expiry date",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Missing",
+                        "Requested",
+                        "In progress",
+                        "Approved",
+                        "Blocked",
+                        "Expired"
+                    ]
+                },
+                {
+                    "key": "file_reference",
+                    "label": "Supporting document reference",
+                    "type": "url",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Conditions \/ restrictions",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "callsheet": {
+            "label": "Call sheet drafts",
+            "section": "Call Sheets",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Call sheet title",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "schedule_id",
+                    "label": "Shoot day",
+                    "type": "ref:schedule",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "revision",
+                    "label": "Revision label",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "general_call",
+                    "label": "General call time",
+                    "type": "time",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "meal",
+                    "label": "Meal break",
+                    "type": "time",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "wrap",
+                    "label": "Estimated wrap",
+                    "type": "time",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "unit",
+                    "label": "Unit",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "emergency",
+                    "label": "Emergency contact \/ hospital",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "weather",
+                    "label": "Weather notes (manual)",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "instructions",
+                    "label": "Production notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Draft",
+                        "Approved",
+                        "Issued"
+                    ]
+                }
+            ]
+        },
+        "issued_callsheet": {
+            "label": "Issued call sheets (locked snapshots)",
+            "section": "Call Sheets",
+            "readonly": true,
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Issued title",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "issued_at",
+                    "label": "Issued at",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "revision",
+                    "label": "Revision",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "schedule_id",
+                    "label": "Original schedule",
+                    "type": "ref:schedule",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "snapshot",
+                    "label": "Issued data",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "take": {
+            "label": "Take logs",
+            "section": "Shoot Days",
+            "fields": [
+                {
+                    "key": "shot_id",
+                    "label": "Shot",
+                    "type": "ref:shot",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "scene_id",
+                    "label": "Scene",
+                    "type": "ref:scene",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "schedule_id",
+                    "label": "Shoot day",
+                    "type": "ref:schedule",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "take_no",
+                    "label": "Take number",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "camera",
+                    "label": "Camera",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "sound_ref",
+                    "label": "Sound reference",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "clip_id",
+                    "label": "Clip \/ reel ID",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "timecode",
+                    "label": "Timecode",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "selected",
+                    "label": "Selected take",
+                    "type": "checkbox",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Director \/ supervisor notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "continuity": {
+            "label": "Continuity logs",
+            "section": "Shoot Days",
+            "fields": [
+                {
+                    "key": "scene_id",
+                    "label": "Scene",
+                    "type": "ref:scene",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "shot_id",
+                    "label": "Shot",
+                    "type": "ref:shot",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "take_id",
+                    "label": "Take",
+                    "type": "ref:take",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "title",
+                    "label": "Continuity topic",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "performance",
+                    "label": "Performance \/ dialogue",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "props",
+                    "label": "Props \/ wardrobe \/ makeup",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "direction",
+                    "label": "Screen direction \/ positions",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "photo_ref",
+                    "label": "Photo reference URL",
+                    "type": "url",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "media": {
+            "label": "Media register",
+            "section": "Shoot Days",
+            "fields": [
+                {
+                    "key": "card",
+                    "label": "Card \/ drive ID",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "shot_id",
+                    "label": "Shot",
+                    "type": "ref:shot",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "take_id",
+                    "label": "Take",
+                    "type": "ref:take",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "source",
+                    "label": "Source location",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "destination",
+                    "label": "Destination \/ archive",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "transfer_date",
+                    "label": "Transfer date",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "responsible",
+                    "label": "Responsible person",
+                    "type": "ref:person",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "verification",
+                    "label": "Verification type",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Not checked",
+                        "User-reported",
+                        "Software checksum verified externally"
+                    ]
+                },
+                {
+                    "key": "checksum_ref",
+                    "label": "External checksum reference",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Transfer issues",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "daily_report": {
+            "label": "Daily production reports",
+            "section": "Shoot Days",
+            "fields": [
+                {
+                    "key": "schedule_id",
+                    "label": "Shoot day",
+                    "type": "ref:schedule",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "title",
+                    "label": "Report title",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "planned_scenes",
+                    "label": "Planned scenes \/ pages",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "completed_scenes",
+                    "label": "Completed scenes \/ pages",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "start",
+                    "label": "Actual start",
+                    "type": "time",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "wrap",
+                    "label": "Actual wrap",
+                    "type": "time",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "overtime",
+                    "label": "Overtime hours",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "delays",
+                    "label": "Delays",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "expenses",
+                    "label": "Expenses this day",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "pickups",
+                    "label": "Outstanding pickups",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Wrap \/ handover notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "issue": {
+            "label": "Issues \/ incidents",
+            "section": "Shoot Days",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Issue",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "schedule_id",
+                    "label": "Shoot day",
+                    "type": "ref:schedule",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "severity",
+                    "label": "Severity",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Low",
+                        "Medium",
+                        "High",
+                        "Critical"
+                    ]
+                },
+                {
+                    "key": "owner",
+                    "label": "Assigned to",
+                    "type": "ref:person",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "action",
+                    "label": "Corrective action",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Open",
+                        "In progress",
+                        "Resolved"
+                    ]
+                },
+                {
+                    "key": "resolution",
+                    "label": "Resolution",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "post_task": {
+            "label": "Postproduction tasks",
+            "section": "Postproduction",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Task",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "department",
+                    "label": "Department",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Picture edit",
+                        "VFX",
+                        "Sound",
+                        "Music",
+                        "Colour",
+                        "Finishing",
+                        "Subtitles",
+                        "Localisation",
+                        "Mastering",
+                        "Archive"
+                    ]
+                },
+                {
+                    "key": "related_shot",
+                    "label": "Related shot",
+                    "type": "ref:shot",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "owner",
+                    "label": "Task owner",
+                    "type": "ref:person",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "stage",
+                    "label": "Stage \/ milestone",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "due",
+                    "label": "Due date",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "cost",
+                    "label": "Budget",
+                    "type": "number",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "dependency",
+                    "label": "Dependency \/ source reference",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Planned",
+                        "In progress",
+                        "In review",
+                        "Approved",
+                        "Blocked",
+                        "Done"
+                    ]
+                },
+                {
+                    "key": "notes",
+                    "label": "Editorial \/ technical notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "cut": {
+            "label": "Cuts & masters",
+            "section": "Postproduction",
+            "fields": [
+                {
+                    "key": "version",
+                    "label": "Unique version ID",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "stage",
+                    "label": "Edit stage",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Assembly",
+                        "Rough cut",
+                        "Fine cut",
+                        "Picture lock",
+                        "Master"
+                    ]
+                },
+                {
+                    "key": "author",
+                    "label": "Created by",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "created_date",
+                    "label": "Date",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "file_ref",
+                    "label": "Review file \/ master path",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "superseded",
+                    "label": "Superseded",
+                    "type": "checkbox",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "approved_by",
+                    "label": "Approver",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "approval_status",
+                    "label": "Approval",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Unreviewed",
+                        "In review",
+                        "Approved",
+                        "Rejected"
+                    ]
+                },
+                {
+                    "key": "notes",
+                    "label": "Version notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "approved_cut": {
+            "label": "Approved cuts (locked snapshots)",
+            "section": "Postproduction",
+            "readonly": true,
+            "fields": [
+                {
+                    "key": "version",
+                    "label": "Approved cut version",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "cut_id",
+                    "label": "Source cut",
+                    "type": "ref:cut",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "approved_at",
+                    "label": "Approved at",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "approver",
+                    "label": "Approved by",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "snapshot",
+                    "label": "Signed-off version data",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "review_note": {
+            "label": "Review \/ timecode notes",
+            "section": "Postproduction",
+            "fields": [
+                {
+                    "key": "cut_id",
+                    "label": "Cut\/version",
+                    "type": "ref:cut",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "timecode",
+                    "label": "Timecode",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "note",
+                    "label": "Feedback",
+                    "type": "textarea",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "owner",
+                    "label": "Assigned reviewer",
+                    "type": "ref:person",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Open",
+                        "Addressed",
+                        "Approved"
+                    ]
+                },
+                {
+                    "key": "file_ref",
+                    "label": "Review file reference",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "qc": {
+            "label": "QC \/ clearance issues",
+            "section": "Postproduction",
+            "fields": [
+                {
+                    "key": "cut_id",
+                    "label": "Cut\/version",
+                    "type": "ref:cut",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "category",
+                    "label": "QC category",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Picture",
+                        "Audio",
+                        "Subtitles",
+                        "Technical",
+                        "Music rights",
+                        "Footage rights",
+                        "Legal clearance",
+                        "Other"
+                    ]
+                },
+                {
+                    "key": "timecode",
+                    "label": "Timecode",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "severity",
+                    "label": "Severity",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Advisory",
+                        "Major",
+                        "Blocking"
+                    ]
+                },
+                {
+                    "key": "issue",
+                    "label": "Issue",
+                    "type": "textarea",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "owner",
+                    "label": "Owner",
+                    "type": "ref:person",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Open",
+                        "Fixed",
+                        "Retested",
+                        "Waived"
+                    ]
+                },
+                {
+                    "key": "retest",
+                    "label": "Retest outcome",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "override_by",
+                    "label": "Authorised override by",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "override_reason",
+                    "label": "Override reason",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "rights": {
+            "label": "Rights \/ agreements",
+            "section": "Distribution & Delivery",
+            "fields": [
+                {
+                    "key": "asset",
+                    "label": "Asset \/ agreement",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "rightsholder",
+                    "label": "Rightsholder",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "territories",
+                    "label": "Territories",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "media",
+                    "label": "Permitted media",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "start",
+                    "label": "Effective from",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "end",
+                    "label": "Expires",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "exclusivity",
+                    "label": "Exclusivity \/ restrictions",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Unverified",
+                        "Requested",
+                        "Cleared",
+                        "Restricted",
+                        "Expired"
+                    ]
+                },
+                {
+                    "key": "supporting_doc",
+                    "label": "File reference",
+                    "type": "url",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "delivery": {
+            "label": "Delivery packages",
+            "section": "Distribution & Delivery",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Package \/ recipient",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "cut_id",
+                    "label": "Approved cut \/ version",
+                    "type": "ref:cut",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "recipient",
+                    "label": "Recipient",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "specs",
+                    "label": "Required codec \/ resolution \/ aspect \/ audio",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "assets",
+                    "label": "Delivery asset list",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "required_rights",
+                    "label": "Rights \/ approvals checklist",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "due",
+                    "label": "Delivery date",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Draft",
+                        "Preparing",
+                        "Ready",
+                        "Delivered",
+                        "Rejected",
+                        "Accepted"
+                    ]
+                },
+                {
+                    "key": "acceptance",
+                    "label": "Acceptance \/ rejection notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "owner",
+                    "label": "Owner",
+                    "type": "ref:person",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "release_plan": {
+            "label": "Release plans \/ festivals",
+            "section": "Distribution & Delivery",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Release or festival",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "audience",
+                    "label": "Audience",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "territories",
+                    "label": "Territories",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "languages",
+                    "label": "Languages",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "route",
+                    "label": "Route",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Festival",
+                        "Theatrical",
+                        "Streaming",
+                        "Plot-Hive",
+                        "Direct",
+                        "Other"
+                    ]
+                },
+                {
+                    "key": "url",
+                    "label": "Official link",
+                    "type": "url",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "deadline",
+                    "label": "Deadline",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "version",
+                    "label": "Submitted version",
+                    "type": "ref:cut",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Planning",
+                        "Submitted",
+                        "Accepted",
+                        "Rejected",
+                        "Released"
+                    ]
+                },
+                {
+                    "key": "restrictions",
+                    "label": "Premiere restrictions",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "marketing": {
+            "label": "Marketing assets",
+            "section": "Distribution & Delivery",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Asset name",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "category",
+                    "label": "Category",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Poster",
+                        "Trailer",
+                        "Still",
+                        "Synopsis",
+                        "Credits",
+                        "Bio",
+                        "Press kit",
+                        "Other"
+                    ]
+                },
+                {
+                    "key": "file_ref",
+                    "label": "File reference",
+                    "type": "url",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Approval status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Draft",
+                        "In review",
+                        "Approved"
+                    ]
+                },
+                {
+                    "key": "notes",
+                    "label": "Notes",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        },
+        "document": {
+            "label": "Documents & contracts",
+            "section": "Documents",
+            "fields": [
+                {
+                    "key": "title",
+                    "label": "Document title",
+                    "type": "text",
+                    "required": true,
+                    "options": []
+                },
+                {
+                    "key": "category",
+                    "label": "Type",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Agreement",
+                        "Permit",
+                        "Insurance",
+                        "Release",
+                        "Script",
+                        "Budget",
+                        "Report",
+                        "Other"
+                    ]
+                },
+                {
+                    "key": "related_ref",
+                    "label": "Related record ID",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "parties",
+                    "label": "Parties \/ contact",
+                    "type": "text",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "effective",
+                    "label": "Effective date",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "expiry",
+                    "label": "Expiry date",
+                    "type": "date",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "required": false,
+                    "options": [
+                        "Draft",
+                        "Requested",
+                        "Signed",
+                        "Approved",
+                        "Expired"
+                    ]
+                },
+                {
+                    "key": "file_ref",
+                    "label": "Document reference",
+                    "type": "url",
+                    "required": false,
+                    "options": []
+                },
+                {
+                    "key": "notes",
+                    "label": "Access \/ restrictions",
+                    "type": "textarea",
+                    "required": false,
+                    "options": []
+                }
+            ]
+        }
+    },
+    "projectFields": [
+        {
+            "key": "code",
+            "label": "Project code",
+            "type": "text"
+        },
+        {
+            "key": "company",
+            "label": "Company",
+            "type": "text"
+        },
+        {
+            "key": "format",
+            "label": "Format",
+            "type": "select",
+            "options": [
+                "Short film",
+                "Feature",
+                "Documentary",
+                "Commercial",
+                "Music video"
+            ]
+        },
+        {
+            "key": "genre",
+            "label": "Genre",
+            "type": "text"
+        },
+        {
+            "key": "runtime",
+            "label": "Runtime (minutes)",
+            "type": "number"
+        },
+        {
+            "key": "language",
+            "label": "Languages",
+            "type": "text"
+        },
+        {
+            "key": "currency",
+            "label": "Currency ISO",
+            "type": "text"
+        },
+        {
+            "key": "timezone",
+            "label": "Time zone",
+            "type": "text"
+        },
+        {
+            "key": "start_date",
+            "label": "Target start",
+            "type": "date"
+        },
+        {
+            "key": "finish_date",
+            "label": "Target finish",
+            "type": "date"
+        },
+        {
+            "key": "key_contacts",
+            "label": "Key contacts",
+            "type": "textarea"
+        },
+        {
+            "key": "notes",
+            "label": "Description",
+            "type": "textarea"
+        }
+    ]
+}

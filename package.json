@@ -1,0 +1,23 @@
+{
+  "name": "aa-desktop-studio-suite",
+  "productName": "A&A Desktop Studio",
+  "version": "1.1.1",
+  "description": "Offline A&A Pictures Creative Studio and Media Production desktop applications",
+  "private": true,
+  "main": "src/main.js",
+  "author": "A&A Pictures Limited",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev:script": "node scripts/dev.js script",
+    "dev:media": "node scripts/dev.js media",
+    "build:script": "node scripts/build.js script",
+    "build:media": "node scripts/build.js media",
+    "test": "node --test tests/*.test.js",
+    "build:script:mac": "node scripts/build.js script aa-desktop-public-key.pem mac",
+    "build:media:mac": "node scripts/build.js media aa-desktop-public-key.pem mac"
+  },
+  "devDependencies": {
+    "electron": "^37.3.0",
+    "electron-builder": "^26.0.12"
+  }
+}
